@@ -93,9 +93,13 @@ The optimizer uses PyTorch and CUDA extensions in a Python environment to produc
 
 Our default, provided install method is based on Conda package and environment management:
 ```shell
-SET DISTUTILS_USE_SDK=1 # Windows only
-conda env create --file environment.yml
+conda create -n gaussian_splatting python=3.7
 conda activate gaussian_splatting
+pip install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
+pip install submodules/diff-gaussian-rasterization
+pip install submodules/simple-knn
+pip install plyfile
+pip install tqdm
 ```
 Please note that this process assumes that you have CUDA SDK **11** installed, not **12**. For modifications, see below.
 
